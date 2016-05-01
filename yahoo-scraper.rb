@@ -10,13 +10,10 @@ LIST_URL = "#{BASE_YAHOO_URL}/q?s=#{ticker}"
 puts LIST_URL
 
 cleaned_ticker = ticker.downcase
-stock_ticker_element = "#yfs_184_#{cleaned_ticker}"
+stock_ticker_element = "#yfs_l84_#{cleaned_ticker}"
 puts stock_ticker_element
 
 page = Nokogiri::HTML(open(LIST_URL))
+stock_price = page.css(stock_ticker_element)
 
-stock_price = page.css('#yfs_l84_f')
-# stock_price = page.css(stock_ticker_element)
-
-# puts page
 puts stock_price
