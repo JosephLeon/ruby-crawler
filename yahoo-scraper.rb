@@ -14,6 +14,16 @@ stock_ticker_element = "#yfs_l84_#{cleaned_ticker}"
 puts stock_ticker_element
 
 page = Nokogiri::HTML(open(LIST_URL))
-stock_price = page.css(stock_ticker_element)
+stock_price = page.css(stock_ticker_element).text
+
+# Get data from id table1, contains
+table1 = page.css('#table1')
+table1.each do |row|
+	puts row
+end
+
+stock_quote = {
+	"stock_price" => stock_price,
+}
 
 puts stock_price
