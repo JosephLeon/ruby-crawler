@@ -17,8 +17,8 @@ cleaned_ticker = ticker.downcase
 financial_data = page.css(MASTER_TABLE_SELECTOR)
 
 # Revenue
-$revenue_data = {}
+revenue_data = {}
 revenue_section = page.css(REVENUE_SELECTOR)
-# $revenue_data["periods"] = revenue_section.css(".yfi-module-title").text
+revenue_data["periods"] = revenue_section.css(".yfi-module-title").text
 
 puts revenue_data
